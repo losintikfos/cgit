@@ -1,13 +1,13 @@
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER OEMS <oscaremu@gmaiil.com>
 
 RUN apt-get update && \
-    apt-get install -y curl wget supervisor xz-utils build-essential autoconf automake libtool libssl-dev highlight python-markdown apache2 openssh-server
+    apt-get install -y curl wget supervisor xz-utils build-essential autoconf automake libtool libssl-dev zlib1g-dev highlight python-markdown apache2 openssh-server
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV CGIT_VERSION 1.0
-ENV MD5_CHECKSUM 1dbd155da1c4adc89703fb1faf249dff
+ENV CGIT_VERSION 1.2.3
+ENV MD5_CHECKSUM 2d44ca575a8770fae48139c18dac6986
 
 ADD "https://git.zx2c4.com/cgit/snapshot/cgit-$CGIT_VERSION.tar.xz" /root/cgit/
 
